@@ -1,4 +1,4 @@
-This project compares redditors stock picks to SPY. A credibility rating is assigned to them based on the performance of their picks. See "tags_NOV_12_24.json"
+This project compares redditors stock picks to SPY. A credibility rating is assigned to them based on the performance of their picks. See "tags_NOV_12_24.json" for RES compatible list.
 
 1. data = getUserTickers("example_user", 10)
 
@@ -15,7 +15,7 @@ This project compares redditors stock picks to SPY. A credibility rating is assi
     ['AMC', 'Mention: 06/29/2022', True, 'Inception: 12/18/2013', True, 'Price Inc After Mention', True]
 
 
-94k Users were analyzed, 47k mentioned at least 1 stock, 14k mentioned at least 5 stocks. ~90% Stocks mentioned hit a new high since the date they were mentioned. Very few, if any, users were able to consistently pick stocks that outperformed spy. See all_data.csv.
+94k Users were analyzed, 47k mentioned at least 1 stock, 14k mentioned at least 5 stocks. ~90% of stocks mentioned hit a new high since mention. Very few, if any, users were able to consistently pick stocks that outperformed spy. See all_data.csv.
 
 Results:
 
@@ -30,7 +30,7 @@ Sixty Five Percent:
 <img src="https://github.com/user-attachments/assets/ddc1f1a6-a298-480f-81ef-6cd45c4ebce3" alt="Alt Text" width="400" height="300">
 
 
-If you want to recreate this data, use the create_all() function in csvFunctions.py to create a local database of the 7000 Tickers used in this project. This takes ~4 minutes with 10 threads. After that, enter your API info into the config file. If there are JSON errors, try using values_as_keys(alias.json).
+If you want to recreate this data, use the create_all() function in csvFunctions.py to create a local database of the 7000 Tickers used in this project. This takes ~4 minutes with 10 threads. After that, enter your API info into the config file. If there are JSON errors, try using values_as_keys(alias.json). The 
 
 ~
 
