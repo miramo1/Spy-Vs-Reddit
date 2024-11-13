@@ -15,6 +15,8 @@ This project compares redditors stock picks to SPY. A credibility rating is assi
     ['AMC', 'Mention: 06/29/2022', True, 'Inception: 12/18/2013', True, 'Price Inc After Mention', True]
 
 
+94k Users were analyzed, 47k mentioned at least 1 stock, 14k mentioned at least 5 stocks. ~90% Stocks mentioned hit a new high since the date they were mentioned. Very few, if any, users were able to consistently pick stocks that outperformed spy. See all_data.csv.
+
 Results:
 
 <img src="https://github.com/user-attachments/assets/0aaf7ee9-18b8-44e5-9f5b-993931b3b28b" alt="Alt Text" width="400" height="300">
