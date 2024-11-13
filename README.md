@@ -1,10 +1,21 @@
-I compared stock picks made by Reddit users to the performance of the S&P 500 (represented by SPY). If at least half of a redditors picks outperformed SPY, they are included in the table below. 94k Users were analyzed; 47k mentioned at least one ticker, and 14k mentioned 5 or more tickers.
+This project compares redditors stock picks to SPY. A credibility rating is assigned to them based on the performance of their picks. See "tags_NOV_12_24.json"
 
-This project attempts to assign credibility ratings to users on Reddits investing forums. A single * means at least 60% of their stocks have underperformed SPY, ** - 70%, *** - 80% and **** - 90%. The stars are followed by how often SPY has won, and how many tickers the user has mentioned. EG, echoapollo_bot [**129/184]
+1. data = getUserTickers("example_user", 10)
 
-You can use the "tags_NOV_12_24" along with the Reddit Enhancement Suite to assign tags to users that have been analyzed.
+    eg, [('F', '07/18/2024'), ("KO", '02/29/2024'), ("AMC", '06/29/2022')]
 
-Of the 14k that mentioned 5+ tickers, only 2586 beat spy 50%. Despite this, 89.36% of their picks reached a higher price after being mentioned.
+2. bench_vs_user("SPY", data)
+
+    ticker, date of mention, spy>ticker?, date of inception, spy>ticker?, Price Inc After Mention, bool
+   
+    ['F', 'Mention: 07/18/2024', True, 'Inception: 01/29/1993', True, 'Price Inc After Mention', False]
+    
+    ['KO', 'Mention: 02/29/2024', True, 'Inception: 01/29/1993', True, 'Price Inc After Mention', True] 
+    
+    ['AMC', 'Mention: 06/29/2022', True, 'Inception: 12/18/2013', True, 'Price Inc After Mention', True]
+
+
+Results:
 
 <img src="https://github.com/user-attachments/assets/0aaf7ee9-18b8-44e5-9f5b-993931b3b28b" alt="Alt Text" width="400" height="300">
 
