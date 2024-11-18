@@ -1,18 +1,23 @@
-This project compares redditors stock picks to SPY. A credibility rating is assigned to them based on the performance of their picks. See "tags_NOV_12_24.json" for RES compatible list.
-
-1. data = getUserTickers("example_user", 10)
-
-    eg, [('F', '07/18/2024'), ("KO", '02/29/2024'), ("AMC", '06/29/2022')]
-
-2. bench_vs_user("SPY", data)
-
-    ticker, date of mention, spy>ticker?, date of inception, spy>ticker?, Price Inc After Mention, bool
+1. getUserTickers("example_user", 10)
    
-    ['F', 'Mention: 07/18/2024', True, 'Inception: 01/29/1993', True, 'Price Inc After Mention', False]
-    
-    ['KO', 'Mention: 02/29/2024', True, 'Inception: 01/29/1993', True, 'Price Inc After Mention', True] 
-    
-    ['AMC', 'Mention: 06/29/2022', True, 'Inception: 12/18/2013', True, 'Price Inc After Mention', True]
+    Fetches and parses a redditors submission and comments. The second parameter specifies the search depth. Returns the earliest mentioned date of each ticker. eg
+
+   ('FORD', '07/18/2022'),\
+   ("KO", '02/27/2023'),\
+   ("AAPL", '06/29/2019'),\
+   ("GME", '04/01/2021')
+
+
+3. bench_vs_user("SPY", data)
+
+    Compares the performance of the ticker relative to SPY since the date of mention, and since the tickers inception. Returns a list:
+
+    Ticker Name, Date Mentioned, SPY > Ticker since mention?, Date of inception, SPY > Ticker since Inception?, 'Price Inc After Mention'
+   
+    ['FORD', 'Mention: 07/18/2022', True, 'Inception: 11/17/1994', True, 'Price Inc After Mention', True]\
+    ['KO', 'Mention: 02/27/2023', True, 'Inception: 01/29/1993', True, 'Price Inc After Mention', True]\
+    ['AAPL', 'Mention: 06/28/2019', False, 'Inception: 01/29/1993', False, 'Price Inc After Mention', True]\
+    ['GME', 'Mention: 04/01/2021', True, 'Inception: 02/13/2002', False, 'Price Inc After Mention', True]
 
 
 94k Users were analyzed, 47k mentioned at least 1 stock, 14k mentioned at least 5 stocks. ~90% of stocks mentioned hit a new high since mention. Very few, if any, users were able to consistently pick stocks that outperformed spy. See all_data.csv.
