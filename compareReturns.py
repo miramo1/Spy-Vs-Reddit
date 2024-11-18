@@ -5,6 +5,7 @@ import json
 
 json_file = "alias.json"
 
+
 def bench_vs_user(benchmark, user_tickers: list) -> list:
     """
     returns [challenger ticker, 
@@ -18,27 +19,22 @@ def bench_vs_user(benchmark, user_tickers: list) -> list:
     """
     tickers_as_keys(json_file)
     alias_dict = json.load(open(json_file))
-
     benchmark_wins = []
-    bench_close, bench_dates, bench_divs, _ = get_ticker_data(benchmark)
+    bench_close, bench_dates, bench_raw_returns = get_ticker_data(benchmark)
     def benchmark_vs_challenger(challenger, mention_date):
 
         if alias_dict[challenger] == "DELISTED":
             return [f"{challenger}", f"Delisted, Bench win:", True, f"Mention: {mention_date}", True, "Price Inc After Mention", False]
         
-        chal_close, chal_dates, chal_divs, raw_returns = get_ticker_data(challenger)
+        chal_close, chal_dates, raw_returns = get_ticker_data(challenger)
 
         if mention_date not in chal_dates:
             mention_date = closest_date(mention_date, chal_dates)
 
         fmd = first_mutual_date(bench_dates, chal_dates)
 
-        chal_close, chal_dates, chal_divs = trim_data(chal_close, chal_dates, chal_divs, fmd)
-        temp_close, temp_dates, temp_divs = trim_data(bench_close, bench_dates, bench_divs, fmd)
-
-        # if the challenger has been delisted, give win to bench
-        if chal_dates[-1] < temp_dates[-1]:
-            return [f"{challenger}", f"Inception: {chal_dates[0]}", True, f"Mention: {chal_dates[-1]}", True, "Price Inc After Mention", False]
+        chal_close, chal_dates = trim_data(chal_close, chal_dates, fmd)
+        temp_close, temp_dates = trim_data(bench_close, bench_dates, fmd)
 
         idx_since_reddit_mention = chal_dates.index(mention_date)
         newATH = newHighAfterMention(challenger, mention_date)
@@ -83,7 +79,7 @@ def bench_vs_user(benchmark, user_tickers: list) -> list:
     return benchmark_wins
 
 if __name__ == "__main__":
-    print(*bench_vs_user("SPY", [('F', '07/18/2024'), ("KO", '02/29/2024'), ("AMC", '06/29/2022')]), sep="\n")
+    print(*bench_vs_user("SPY", [('FORD', '07/18/2024'), ("KO", '02/29/2024'), ("AAPL", '06/29/2022')]), sep="\n")
 
     # ['F', 'Mention: 07/18/2024', True, 'Inception: 01/29/1993', True, 'Price Inc After Mention', False]
     # ['KO', 'Mention: 02/29/2024', True, 'Inception: 01/29/1993', True, 'Price Inc After Mention', True] 
