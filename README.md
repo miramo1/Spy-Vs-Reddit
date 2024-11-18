@@ -85,7 +85,7 @@ See Results folder for data. No favorites omits ['GME', 'TSLA', 'AAPL', 'GOOGL',
 
 <h1>CODE</h1>
 
-1. Alias.json is converted into a Trie in order to parse out text. eg.
+1. <h3>Alias.json is converted into a Trie in order to parse out text.</h3> eg.
    
    <pre>"MSFT":  [
               "$MSFT",
@@ -118,7 +118,9 @@ See Results folder for data. No favorites omits ['GME', 'TSLA', 'AAPL', 'GOOGL',
    [4] - SPY > Ticker since Inception?, 
    [5] - 'Price Inc After Mention',
    [6] - True/False]</pre>
-
+   
+   eg.
+   
    <pre>
     (['FORD', 'Mention: 07/18/2022', True, 'Inception: 11/17/1994', True, 'Price Inc After Mention', True],
     ['KO', 'Mention: 02/27/2023', True, 'Inception: 01/29/1993', True, 'Price Inc After Mention', True],
