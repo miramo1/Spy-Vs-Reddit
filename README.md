@@ -79,7 +79,7 @@ Price Increase Post Mention, PIPM, checks if the stock hit a higher price at lea
 | 50      | 296   | 0        | 0.0  | 91.01 |
 +---------+-------+----------+------+-------+</pre>
 
-<h3>Conclusion: SPY overwhelmingly defeats the majority of redditors stock picks in binary terms. Effect is most pronounced in the short-squeeze and penny stock focused subreddits, even when accounting for actual returns.</h3>
+<h4>Conclusion: SPY overwhelmingly defeats the majority of redditors stock picks in binary terms. Effect is most pronounced in the short-squeeze and penny stock focused subreddits, even when accounting for actual returns. Always bet on SPY.</h4>
 
 See Results folder for data. No favorites omits ['GME', 'TSLA', 'AAPL', 'GOOGL', 'AMZN', 'NVDA', 'AMC', 'V', 'META', 'MSFT']. No spy omits any stock already included in SPY.
 
