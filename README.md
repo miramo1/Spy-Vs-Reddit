@@ -110,7 +110,14 @@ See Results folder for data. No favorites omits ['GME', 'TSLA', 'AAPL', 'GOOGL',
 
     Compares the performance of the ticker relative to SPY since the date of mention, and since the tickers inception. Returns a list:
 
-    Ticker Name, Date Mentioned, SPY > Ticker since mention?, Date of inception, SPY > Ticker since Inception?, 'Price Inc After Mention'
+<pre>
+   [0] - [Ticker, 
+   [1] - Date Mentioned, 
+   [2] - SPY > Ticker since mention?, 
+   [3] - Date of inception, 
+   [4] - SPY > Ticker since Inception?, 
+   [5] - 'Price Inc After Mention',
+   [6] - True/False]</pre>
 
    <pre>
     (['FORD', 'Mention: 07/18/2022', True, 'Inception: 11/17/1994', True, 'Price Inc After Mention', True],
