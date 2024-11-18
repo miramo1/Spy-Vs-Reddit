@@ -113,7 +113,6 @@ def get_con_comments(author, search_limit, output_queue):
             startingTime = datetime.now()
             if item.subreddit in subreddits:
                 if item.body != None:
-                    time = str(item.created_utc)
                     text = strip_text(item.body)
                     scrape_time += time_delta(startingTime)
                     start_parse = datetime.now()
@@ -158,7 +157,6 @@ def get_hot_comments(author, search_limit, output_queue):
             startingTime = datetime.now()
             if item.subreddit in subreddits:
                 if item.body != None:
-                    time = str(item.created_utc)
                     text = strip_text(item.body)
                     scrape_time += time_delta(startingTime)
                     start_parse = datetime.now()
@@ -195,7 +193,6 @@ def get_posts(author, search_limit, output_queue):
     raw_data = []
     scrape_time = 0
     parse_time = 0
-    # SUSPENDED "4Fun-Rub-9798", "6Dear-Classroom6589" ,"77knxpy926", "A25S52A", "AbyssUpdate"
 
     submissions = reddit.redditor(author).submissions.top(limit=search_limit)
 
@@ -204,7 +201,6 @@ def get_posts(author, search_limit, output_queue):
             startingTime = datetime.now()
             if item.subreddit in subreddits:
                 if item.selftext != None:
-                    time = str(item.created_utc)
                     text = strip_text(item.title + " " +  item.selftext)
                     scrape_time += time_delta(startingTime)
                     start_parse = datetime.now()
@@ -253,7 +249,7 @@ def getUserTickers(user, count):
 
 if __name__ == "__main__":
     x = getUserTickers("echoapollo_bot", 10)
-    print(x)
-    ([('APH', '05/22/2018'), ('TSLA', '08/25/2018'), ('TNDM', '08/29/2018'), ('SQ', '08/29/2018'), ('MU', '09/03/2018'), ('AAPL', '11/04/2018'), ('ROL', '12/11/2018'), ('WMT', '12/19/2018'), ('ORCL', '12/20/2018')], 2.369)
+    print(*x[0], sep="\n")
+    # ([('APH', '05/22/2018'), ('TSLA', '08/25/2018'), ('TNDM', '08/29/2018'), ('SQ', '08/29/2018'), ('MU', '09/03/2018'), ('AAPL', '11/04/2018'), ('ROL', '12/11/2018'), ('WMT', '12/19/2018'), ('ORCL', '12/20/2018')], 2.369)
 
 

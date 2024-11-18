@@ -67,6 +67,7 @@ def tickers_as_keys(json_file):
         return
 
 if __name__ == "__main__":
+    # values_as_keys(file)
     tickers_as_keys(file)
-    known_tickers = list(json.load(open(file)).keys())
-    print(len(known_tickers))
+    # known_tickers = list(json.load(open(file)).keys())
+    # print(len(known_tickers))
