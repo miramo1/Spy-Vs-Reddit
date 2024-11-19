@@ -1,6 +1,6 @@
 <h1>SPY VS. Reddit</h1>
 
-<h3>Process: Scrape redditor profiles for stock picks. Stock performance is compared to SPY according to redditors earliest mention date.</h3>
+<h4>Process: Scrape redditor profiles for stock picks. Stock performance is compared to SPY according to redditors earliest mention date.</h4>
 
 106k Reddit profiles analyzed, of which 16.2k mentioned at least 5 stocks.
 
@@ -8,7 +8,7 @@
 
 Price Increase Post Mention, PIPM, checks if the stock hit a higher price at least once after the date of mention. 
 
-<h3>Users that beat SPY at least 50.0% of the time</h3>
+<h4>Users that beat SPY at least 50% of the time</h4>
 <pre>
 +---------+-------+----------+-------+-------+
 | Tickers | Users | Beat SPY | %     | PIPM  |
@@ -23,11 +23,11 @@ Price Increase Post Mention, PIPM, checks if the stock hit a higher price at lea
 | 40      | 564   | 51       | 9.04  | 90.68 |
 | 45      | 401   | 29       | 7.23  | 90.88 |
 | 50      | 296   | 24       | 8.11  | 91.01 |
-+---------+-------+----------+-------+-------+   
++---------+-------+----------+-------+-------+
 </pre>
 
 
-<h3>55%</h3>
+<h4>55%</h4>
 <pre>
 +---------+-------+----------+-------+-------+
 | Tickers | Users | Beat SPY | %     | PIPM  |
@@ -45,7 +45,7 @@ Price Increase Post Mention, PIPM, checks if the stock hit a higher price at lea
 +---------+-------+----------+-------+-------+   
 </pre>
 
-<h3>60%</h3>
+<h4>60%</h4>
 <pre>
 +---------+-------+----------+------+-------+
 | Tickers | Users | Beat SPY | %    | PIPM  |
@@ -62,7 +62,7 @@ Price Increase Post Mention, PIPM, checks if the stock hit a higher price at lea
 | 50      | 296   | 1        | 0.34 | 91.01 |
 +---------+-------+----------+------+-------+</pre>
 
-<h3>65%</h3>
+<h4>65%</h4>
 <pre>
 +---------+-------+----------+------+-------+
 | Tickers | Users | Beat SPY | %    | PIPM  |
@@ -79,14 +79,49 @@ Price Increase Post Mention, PIPM, checks if the stock hit a higher price at lea
 | 50      | 296   | 0        | 0.0  | 91.01 |
 +---------+-------+----------+------+-------+</pre>
 
-<h4>Conclusion: SPY overwhelmingly defeats the majority of redditors stock picks in binary terms. Effect is most pronounced in the short-squeeze and penny stock focused subreddits, even when accounting for actual returns. Always bet on SPY.</h4>
+<h1>OMITING FAVORITES</h1>
 
-See Results folder for data. No favorites omits ['GME', 'TSLA', 'AAPL', 'GOOGL', 'AMZN', 'NVDA', 'AMC', 'V', 'META', 'MSFT']. No spy omits any stock already included in SPY.
+No favorites excludes most mentioned stocks - ['GME', 'TSLA', 'AAPL', 'GOOGL', 'AMZN', 'NVDA', 'AMC', 'V', 'META', 'MSFT']. No SPY omits any stock already included in SPY. Returns degrade substantially when favorites are omitted. See Results folder for data. 
+
+<h4>Without Favorites, Users that beat SPY at least 50% of the time</h4>
+<pre>
++---------+-------+----------+-------+-------+
+| Tickers | Users | Beat SPY | %     | PIPM  |
++---------+-------+----------+-------+-------+
+| 5       | 12108 | 1737     | 14.35 | 88.25 |
+| 10      | 5653  | 702      | 12.42 | 88.7  |
+| 15      | 3103  | 351      | 11.31 | 89.14 |
+| 20      | 1849  | 180      | 9.73  | 89.48 |
+| 25      | 1157  | 96       | 8.3   | 89.79 |
+| 30      | 769   | 66       | 8.58  | 89.97 |
+| 35      | 528   | 41       | 7.77  | 90.03 |
+| 40      | 374   | 28       | 7.49  | 90.32 |
+| 45      | 282   | 19       | 6.74  | 90.64 |
+| 50      | 214   | 16       | 7.48  | 90.75 |
++---------+-------+----------+-------+-------+</pre>
+
+<h4>Without SPY, Users that beat SPY at least 50% of the time</h4>
+<pre>
++---------+-------+----------+-------+-------+
+| Tickers | Users | Beat SPY | %     | PIPM  |
++---------+-------+----------+-------+-------+
+| 5       | 7512  | 1062     | 14.14 | 84.44 |
+| 10      | 2559  | 298      | 11.65 | 84.31 |
+| 15      | 1121  | 104      | 9.28  | 84.25 |
+| 20      | 551   | 49       | 8.89  | 84.38 |
+| 25      | 306   | 20       | 6.54  | 84.43 |
+| 30      | 180   | 10       | 5.56  | 84.13 |
+| 35      | 122   | 8        | 6.56  | 83.83 |
+| 40      | 82    | 5        | 6.1   | 83.47 |
+| 45      | 66    | 5        | 7.58  | 83.36 |
+| 50      | 52    | 3        | 5.77  | 84.03 |
++---------+-------+----------+-------+-------+</pre>
 
 <h1>CODE</h1>
 
-1. <h3>Alias.json is converted into a Trie in order to parse out text.</h3> eg.
-   
+1. <h4>Alias.json is converted into a Trie in order to parse out text.</h4> 
+
+   eg.
    <pre>"MSFT":  [
               "$MSFT",
               "MICRO SOFT",
@@ -95,42 +130,66 @@ See Results folder for data. No favorites omits ['GME', 'TSLA', 'AAPL', 'GOOGL',
               "WINDOWS"
             ]</pre>
           
-2. <h3>getUserTickers("example_user", 10)</h3>
+2. <h4>getUserTickers("example_user", 10)</h4>
    
-   Fetches and parses a redditors submission and comments. The second parameter specifies the search depth. Returns the earliest mentioned date of each ticker. eg
+   Fetches and parses a redditors submission and comments. The second parameter specifies the search depth. Returns the earliest mentioned date of each ticker.
    
+   eg.
    <pre>[('FORD', '07/18/2022'),
    ("KO", '02/27/2023'),
-   ("AAPL", '06/29/2019'),
+   ("AAPL", '06/29/2019',
    ("GME", '04/01/2021')]
    </pre>
 
 
-3. <h3>bench_vs_user("SPY", data)</h3>
+4. <h4>bench_vs_user("SPY", data)</h4>
 
-    Compares the performance of the ticker relative to SPY since the date of mention, and since the tickers inception. Returns a list:
+   Compares the performance of the ticker relative to SPY since the date of mention, and since the tickers inception. Returns a list:
 
-<pre>
+   <pre>
    [0] - [Ticker, 
    [1] - Date Mentioned, 
    [2] - SPY > Ticker since mention?, 
    [3] - Date of inception, 
    [4] - SPY > Ticker since Inception?, 
-   [5] - 'Price Inc After Mention',
+   [5] - Price Inc After Mention?,
    [6] - True/False]</pre>
    
    eg.
-   
    <pre>
-    (['FORD', 'Mention: 07/18/2022', True, 'Inception: 11/17/1994', True, 'Price Inc After Mention', True],
+    [['FORD', 'Mention: 07/18/2022', True, 'Inception: 11/17/1994', True, 'Price Inc After Mention', True],
     ['KO', 'Mention: 02/27/2023', True, 'Inception: 01/29/1993', True, 'Price Inc After Mention', True],
     ['AAPL', 'Mention: 06/28/2019', False, 'Inception: 01/29/1993', False, 'Price Inc After Mention', True],
-    ['GME', 'Mention: 04/01/2021', True, 'Inception: 02/13/2002', False, 'Price Inc After Mention', True])</pre>
+    ['GME', 'Mention: 04/01/2021', True, 'Inception: 02/13/2002', False, 'Price Inc After Mention', True]]</pre>
 
+<h1>DISCUSSION</h1>
 
-To do~ 
-1. Refine Alias list
-2. Convert stock_data to duckDB
-3. Incorporate a llama to evaluate the users sentiment on the mentioned stocks
-4. Yahoo API, as of 11/18/24, has hidden rate limits. Figure out way to update data with async.
-5. Get exact returns for redditors. Allocate equal weight to each mentioned ticker? Investigate further.
+1. Project does not take into account sentiment and context when scraping tickers. "I think SO-SO Corp is terrible, but I think THIS-AND-THAT Inc. is a gem!" In this case, both tickers would be picked up by the Trie. Although negative sentiment mentions are rare, and most likely don't have a tangible effect on the data, their existence must be taken into account.
+ 
+      <code>Proposed remedy - Incorporate LLM to interpret sentiment and context in order to omit negative sentiment tickers. Might need new graphics card?</code>
+
+2. This project relies on the Alias.json to match words and phrases to their respective tickers. While the list has been reasonably well refined, false positives do occur from time to time. This is most promiment when factoring in non-english users and non-english subreddits.
+
+      <code>Proposed remedy - Further refine Alias.json, or omit problematic subreddits/languages altogether.</code>
+
+3. The data base of this project relies on YAHOO FINANCE, and by extension, the yfinance module. As of this week, 11/18/2024, YAHOO FINANCE seems to have silently implemented limits on API calls. The current itteration of the database includes about ~7000 CSVs which must be updated daily. The updating process seems to hit the API call limit around 2000-2500. Furthermore, the nature of CSVs makes them cumbersome and slow to work with.
+   
+      <code>Temporary remedy - Keep SPY updated daily. When comparing SPY to the users TICKER, trim the length of SPY to match the length of TICKER. At worst, this results the omission of a day or two of returns. Overall inconsequential, but nonetheless very annoying.</code>
+      
+      <code>Proposed remedy 1 - Update the database in a staggered/asynch formation throughout the day to avoid API call limits. Look into AlphaVantage, or consider paying for data. Reach out to testfol.io creator for second opinion.</code>
+
+      <code>Proposed remedy 2 - Convert CSV database to SQL for faster access and compatibility with multiprocess. Duck DB looks promising.</code>
+
+4. The exact returns generated by each redditor isn't calculated. It's plausible, though tenuous, that a redditor may pick one or two stocks that generate enough alpha to create net profit despite losses on all other stock picks. 2.4% of firms generated the bulk of market returns, Bessembinder et al. Took a preliminary look into this, specifically in the pennystock and short-squeeze focused subreddits. These redditors, in aggregate, were consistently and overwhelmingly net negative even when accounting for squeezes. Results to be posted later.
+
+   <code>Proposed remedy - Incorporate exact returns into bench_vs_user function. Allocate one single dollar to each stock starting at its earliest mention? Reconcile when redditor choose to "yolo" on a stock.</code>
+
+<div id="user-content-toc">
+  <ul align="center" style="list-style: none;">
+    <summary>
+      <h1>Always bet on SPY.</h1>
+    </summary>
+  </ul>
+</div>
+
+<!-- 5. <h2>Always bet on SPY.</h2> -->
