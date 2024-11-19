@@ -3,7 +3,7 @@ from stockFunctions import get_ticker_data, trim_data, newHighAfterMention
 from timeFunctions import closest_date, first_mutual_date
 import json
 
-json_file = "alias.json"
+json_file = ""
 
 
 def bench_vs_user(benchmark, user_tickers: list) -> list:
