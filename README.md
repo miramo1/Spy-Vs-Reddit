@@ -1,10 +1,4 @@
-<div id="user-content-toc">
-  <ul align="center" style="list-style: none;">
-    <summary>
-      <h1>SPY VS. Reddit</h1>
-    </summary>
-  </ul>
-</div>
+* <h1>SPY VS. Reddit</h1>
 
 <h4>Process: Scrape redditor profiles for stock picks. Stock performance is compared to SPY according to redditors earliest mention date.</h4>
 
