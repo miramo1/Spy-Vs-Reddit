@@ -164,7 +164,7 @@ nofavs.csv excludes top 10 most mentioned - ['GME', 'TSLA', 'AAPL', 'GOOGL', 'AM
 
 * <h1>DISCUSSION</h1>
 
-1. Project does not take into account sentiment and context when scraping tickers. "I think SO-SO Corp is terrible, but I think THIS-AND-THAT Inc. is a gem!" In this case, both tickers would be picked up by the Trie. Although negative sentiment mentions are rare, and most likely don't have a tangible effect on the data, their existence must be taken into account.
+1. Project does not take into account sentiment and context when scraping tickers. "I think SO-SO Corp is terrible, but I think THIS-AND-THAT Inc. is a gem!" In this case, both tickers would be picked up by the Trie. Although negative sentiment mentions are rare, and most likely don't have a tangible effect on the data, their existence should still be acknowledged.
  
       <code>Proposed remedy - Incorporate LLM to interpret sentiment and context in order to omit negative sentiment tickers. Might need new graphics card?</code>
 
