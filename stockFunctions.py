@@ -4,7 +4,7 @@ import logging, timeFunctions
 logger = logging.getLogger('yfinance')
 logger.disabled = True
 logger.propagate = False
-stock_folder = r"C:\Users\pinkm\Desktop\stock_data"
+stock_folder = r""
 
 def get_ticker_data(ticker) -> list | list | list | list:
     # date, close, dividends
