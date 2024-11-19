@@ -2,7 +2,9 @@
 
 <h4>Process: Scrape redditor profiles for stock picks. Stock performance is compared to SPY according to redditors earliest mention date.</h4>
 
-106k Reddit profiles analyzed, 57k mentioned at least 1 stock, 16k mentioned at least 5 stocks.
+106,708 users parsed, 112:01:57 hms, 2024-11-18
+
+57k mentioned at least 1 stock, 16k mentioned at least 5 stocks.
 
 Of the 16k, 3.2k were able to beat SPY at least 50% of the time.
 
