@@ -1,10 +1,10 @@
-<h1>SPY VS. Reddit</h1>
+* <h1>SPY VS. Reddit</h1>
 
 <h4>Process: Scrape redditor profiles for stock picks. Stock performance is compared to SPY according to redditors earliest mention date.</h4>
 
-106k Reddit profiles analyzed, of which 16.2k mentioned at least 5 stocks.
+106k Reddit profiles analyzed, 57k mentioned at least 1 stock, 16k mentioned at least 5 stocks.
 
-3200 of them were able to beat SPY at least 50% of the time. 
+Of the 16k, 3200 were able to beat SPY at least 50% of the time.
 
 Price Increase Post Mention, PIPM, checks if the stock hit a higher price at least once after the date of mention. 
 
@@ -79,7 +79,7 @@ Price Increase Post Mention, PIPM, checks if the stock hit a higher price at lea
 | 50      | 296   | 0        | 0.0  | 91.01 |
 +---------+-------+----------+------+-------+</pre>
 
-<h1>OMITING FAVORITES</h1>
+* <h1>OMITING FAVORITES</h1>
 
 No favorites excludes most mentioned stocks - ['GME', 'TSLA', 'AAPL', 'GOOGL', 'AMZN', 'NVDA', 'AMC', 'V', 'META', 'MSFT']. No SPY omits any stock already included in SPY. Returns degrade substantially when favorites are omitted. See Results folder for data. 
 
@@ -117,7 +117,7 @@ No favorites excludes most mentioned stocks - ['GME', 'TSLA', 'AAPL', 'GOOGL', '
 | 50      | 52    | 3        | 5.77  | 84.03 |
 +---------+-------+----------+-------+-------+</pre>
 
-<h1>CODE</h1>
+* <h1>CODE</h1>
 
 1. <h4>Alias.json is converted into a Trie in order to parse out text.</h4> 
 
@@ -162,7 +162,7 @@ No favorites excludes most mentioned stocks - ['GME', 'TSLA', 'AAPL', 'GOOGL', '
     ['AAPL', 'Mention: 06/28/2019', False, 'Inception: 01/29/1993', False, 'Price Inc After Mention', True],
     ['GME', 'Mention: 04/01/2021', True, 'Inception: 02/13/2002', False, 'Price Inc After Mention', True]]</pre>
 
-<h1>DISCUSSION</h1>
+* <h1>DISCUSSION</h1>
 
 1. Project does not take into account sentiment and context when scraping tickers. "I think SO-SO Corp is terrible, but I think THIS-AND-THAT Inc. is a gem!" In this case, both tickers would be picked up by the Trie. Although negative sentiment mentions are rare, and most likely don't have a tangible effect on the data, their existence must be taken into account.
  
@@ -184,6 +184,7 @@ No favorites excludes most mentioned stocks - ['GME', 'TSLA', 'AAPL', 'GOOGL', '
 
    <code>Proposed remedy - Incorporate exact returns into bench_vs_user function. Allocate one single dollar to each stock starting at its earliest mention? Reconcile when redditor choose to "yolo" on a stock.</code>
 
+
 <div id="user-content-toc">
   <ul align="center" style="list-style: none;">
     <summary>
@@ -191,5 +192,3 @@ No favorites excludes most mentioned stocks - ['GME', 'TSLA', 'AAPL', 'GOOGL', '
     </summary>
   </ul>
 </div>
-
-<!-- 5. <h2>Always bet on SPY.</h2> -->
