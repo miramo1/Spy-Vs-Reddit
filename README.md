@@ -4,7 +4,7 @@
 
 106k Reddit profiles analyzed, 57k mentioned at least 1 stock, 16k mentioned at least 5 stocks.
 
-Of the 16k, 3200 were able to beat SPY at least 50% of the time.
+Of the 16k, 3.2k were able to beat SPY at least 50% of the time.
 
 Price Increase Post Mention, PIPM, checks if the stock hit a higher price at least once after the date of mention. 
 
@@ -81,7 +81,7 @@ Price Increase Post Mention, PIPM, checks if the stock hit a higher price at lea
 
 * <h1>OMITING FAVORITES</h1>
 
-No favorites excludes most mentioned stocks - ['GME', 'TSLA', 'AAPL', 'GOOGL', 'AMZN', 'NVDA', 'AMC', 'V', 'META', 'MSFT']. No SPY omits any stock already included in SPY. Returns degrade substantially when favorites are omitted. See Results folder for data. 
+nofavs.csv excludes top 10 most mentioned - ['GME', 'TSLA', 'AAPL', 'GOOGL', 'AMZN', 'NVDA', 'AMC', 'V', 'META', 'MSFT']. nospy.csv omits any stock already included in SPY. Returns degrade substantially when favorites are omitted. See Results folder for data. 
 
 <h4>Without Favorites, Users that beat SPY at least 50% of the time</h4>
 <pre>
