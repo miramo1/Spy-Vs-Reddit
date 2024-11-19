@@ -2,7 +2,7 @@
 
 <h4>Process: Scrape redditor profiles for stock picks. Stock performance is compared to SPY according to redditors earliest mention date.</h4>
 
-106,708 users parsed, 112:01:57 hms, 2024-11-18
+106,708 users parsed, 112:01:57 total time, 2024-11-18
 
 57k mentioned at least 1 stock, 16k mentioned at least 5 stocks.
 
