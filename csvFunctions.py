@@ -4,10 +4,10 @@ import json, os, multiprocessing, time
 import pandas as pd
 import yfinance as yf
 
-folder_path = r"C:\Users\pinkm\Desktop\stock_data"
+folder_path = r""
 stock_data = os.listdir(folder_path)
 
-json_file = r"alias.json"
+json_file = r""
 values_as_keys(json_file)
 known_tickers = sorted(set(json.load(open(json_file)).values()))
 
